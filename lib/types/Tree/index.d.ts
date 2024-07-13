@@ -41,7 +41,7 @@ declare class Tree extends React.Component<TreeProps, TreeState> {
      *
      * @static
      */
-    static assignInternalProperties(data: RawNodeDatum[], currentDepth?: number): TreeNodeDatum[];
+    static assignInternalProperties(data: RawNodeDatum[], currentDepth?: number, prevDataState?: TreeNodeDatum): TreeNodeDatum[];
     /**
      * Recursively walks the nested `nodeSet` until a node matching `nodeId` is found.
      */
@@ -137,6 +137,7 @@ declare class Tree extends React.Component<TreeProps, TreeState> {
         translate: Point;
         scale: any;
     };
+    static getNodeProps: (node: RawNodeDatum, nodeKey: string) => any;
     /**
      * Determines which additional `className` prop should be passed to the node & returns it.
      */
